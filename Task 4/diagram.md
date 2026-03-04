@@ -115,7 +115,7 @@ flowchart TB
             end
 
             subgraph FIN_DB["Финтех-домен"]
-                PG[Managed PostgreSQL\nyandex_mdb_postgresql_cluster\nv15 · БД: fintechdb"]:::tf
+                PG["Managed PostgreSQL\nyandex_mdb_postgresql_cluster\nv15 · БД: fintechdb"]:::tf
             end
         end
     end
@@ -173,25 +173,25 @@ flowchart TB
 
 ## Итоговая таблица компонентов
 
-| Компонент | Yandex Cloud ресурс | Управление | Паттерн из Terraform.md |
-|---|---|---|---|
-| VPC Network + Subnets | `yandex_vpc_network` / `yandex_vpc_subnet` | **Terraform** | Сетевой контейнер для `subnet_id` |
-| NAT Gateway + Route Table | `yandex_vpc_gateway` + `yandex_vpc_route_table` | **Terraform** | Замена `nat=true` на уровне сети |
-| Security Groups | `yandex_vpc_security_group` | **Terraform** | Изоляция доменов |
-| Compute Disk (×2) | `yandex_compute_disk` | **Terraform** | **Как в примере:** `type="network-ssd"`, `image_id` |
-| Compute Instance (×2) | `yandex_compute_instance` | **Terraform** | **Как в примере:** `resources`, `boot_disk`, `network_interface`, `metadata` |
-| Cloud Logging | `yandex_logging_group` | **Terraform** | Мониторинг |
-| Lockbox Secrets | `yandex_lockbox_secret` | **Terraform** | Хранение паролей |
-| Container Registry | `yandex_container_registry` | **Terraform** | Docker-образы |
-| IAM Service Accounts | `yandex_iam_service_account` | **Terraform** | Identity для k8s |
-| Managed Kafka + Topics | `yandex_mdb_kafka_cluster` / `yandex_mdb_kafka_topic` | **Terraform** | Шина событий |
-| Object Storage | `yandex_storage_bucket` | **Terraform** | Медицинский Data Lake |
-| Managed ClickHouse | `yandex_mdb_clickhouse_cluster` | **Terraform** | Corporate DWH |
-| Managed PostgreSQL | `yandex_mdb_postgresql_cluster` | **Terraform** | Финтех БД |
-| Managed Kubernetes | `yandex_kubernetes_cluster` + node groups | **Terraform** | Платформа микросервисов |
-| API Gateway | `yandex_api_gateway` | **Terraform** | Единая точка входа |
-| **DNS-делегация** | — | **Вручную** | Действие у регистратора |
-| **IAM-роли команд** | — | **Вручную** | Политика безопасности |
-| **Миграция из SQL Server 2008** | — | **Вручную** | Однократная операция |
-| **SQL Server 2008 (legacy)** | — | **Вручную** | Вывод по плану |
-| **PowerBuilder + ESB (legacy)** | — | **Вручную** | Вывод по плану |
+| Компонент | Yandex Cloud ресурс | Управление|
+|---|---|---|
+| VPC Network + Subnets | `yandex_vpc_network` / `yandex_vpc_subnet` | **Terraform** |
+| NAT Gateway + Route Table | `yandex_vpc_gateway` + `yandex_vpc_route_table` | **Terraform** |
+| Security Groups | `yandex_vpc_security_group` | **Terraform** |
+| Compute Disk (×2) | `yandex_compute_disk` | **Terraform** |
+| Compute Instance (×2) | `yandex_compute_instance` | **Terraform** |
+| Cloud Logging | `yandex_logging_group` | **Terraform** |
+| Lockbox Secrets | `yandex_lockbox_secret` | **Terraform** |
+| Container Registry | `yandex_container_registry` | **Terraform** | 
+| IAM Service Accounts | `yandex_iam_service_account` | **Terraform** | 
+| Managed Kafka + Topics | `yandex_mdb_kafka_cluster` / `yandex_mdb_kafka_topic` | **Terraform** | 
+| Object Storage | `yandex_storage_bucket` | **Terraform** | 
+| Managed ClickHouse | `yandex_mdb_clickhouse_cluster` | **Terraform** | 
+| Managed PostgreSQL | `yandex_mdb_postgresql_cluster` | **Terraform** |
+| Managed Kubernetes | `yandex_kubernetes_cluster` + node groups | **Terraform** | 
+| API Gateway | `yandex_api_gateway` | **Terraform** | 
+| **DNS-делегация** | — | **Вручную** | 
+| **IAM-роли команд** | — | **Вручную** | 
+| **Миграция из SQL Server 2008** | — | **Вручную** | 
+| **SQL Server 2008 (legacy)** | — | **Вручную** | 
+| **PowerBuilder + ESB (legacy)** | — | **Вручную** | 

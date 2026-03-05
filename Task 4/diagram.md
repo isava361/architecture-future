@@ -131,7 +131,7 @@ flowchart TB
     S_MED --> SG_MED
     S_FIN --> SG_FIN
 
-    %% ── Связи: диски → VM (паттерн из учебного примера) ─────────
+    %% ── Связи: диски → VM  ─────────
     DSK_MED --> VM_MED
     DSK_FIN --> VM_FIN
 
